@@ -20,6 +20,9 @@ public class DataDrivenTesting {
 	private By searchBoxLocator = By.id("search_query_top");
 	private By searchBtnLocator = By.name("submit_search");
 	private By resultTextLocator = By.cssSelector("span.heading-counter");
+	private By signIn           = By.xpath("//a[@class='login']");
+	private By email            = By.xpath("//input[@id='email']");
+	private By password         = By.xpath("//input[@id='passwd']");
 	
 	@Before
 	public void setUp() throws Exception {
@@ -40,23 +43,35 @@ public class DataDrivenTesting {
 	public void test() throws IOException {
 		
 		String filepath = "C:\\Users\\usuario\\Downloads\\excel.xlsx";
-
+		String emailExcel = readFile.getCellValue(filepath, "Hoja1", 4, 0);
+		String passwordExcel = readFile.getCellValue(filepath, "Hoja1", 5, 0);
+		
+		driver.findElement(signIn).click();
+		driver.findElement(email).sendKeys(emailExcel);
+		driver.findElement(password).sendKeys(passwordExcel);
+		
+		
+		
+		//ESTO USA LOS VALORES DE EL EXCEL PARA RELLENAR CAMPOS
+		/*
+		String filepath = "C:\\Users\\usuario\\Downloads\\excel.xlsx";
 		String searchText = readFile.getCellValue(filepath, "Hoja1", 0, 0);
 
 		driver.findElement(searchBoxLocator).clear();
-
 		driver.findElement(searchBoxLocator).sendKeys(searchText);
 		driver.findElement(searchBtnLocator).click();
+		
+		readFile.readExcel(filepath, "Hoja1");
+		*/
+		
+		
+		//ESTO ESCRIBE EN EL EXCEL
+		/*
 		String resultText = driver.findElement(resultTextLocator).getText();
-
 		System.out.println("Page result text:" + resultText);
-
-		readFile.readExcel(filepath, "Hoja1");
-
 		writeFile.writeCellValue(filepath, "Hoja1", 0, 1, resultText);
-
 		readFile.readExcel(filepath, "Hoja1");
-
+		 */
 	}
 
 }
