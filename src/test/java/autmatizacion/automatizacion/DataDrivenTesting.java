@@ -39,11 +39,9 @@ public class DataDrivenTesting {
 	@Test
 	public void test() throws IOException {
 		
-		//Aquí poner la dirección del archivo excel de su computadora 
-		//o también pueden incluirlo como parte del proyecto, la ruta sería como la que usamos para el chromedriver.exe (ver en el método setUp arriba)
 		String filepath = "C:\\Users\\usuario\\Downloads\\excel.xlsx";
 
-		String searchText = readFile.getCellValue(filepath, "Sheet1", 0, 0);
+		String searchText = readFile.getCellValue(filepath, "Hoja1", 0, 0);
 
 		driver.findElement(searchBoxLocator).clear();
 
@@ -53,11 +51,11 @@ public class DataDrivenTesting {
 
 		System.out.println("Page result text:" + resultText);
 
-		readFile.readExcel(filepath, "Sheet1");
+		readFile.readExcel(filepath, "Hoja1");
 
-		writeFile.writeCellValue(filepath, "Sheet1", 0, 1, resultText);
+		writeFile.writeCellValue(filepath, "Hoja1", 0, 1, resultText);
 
-		readFile.readExcel(filepath, "Sheet1");
+		readFile.readExcel(filepath, "Hoja1");
 
 	}
 
