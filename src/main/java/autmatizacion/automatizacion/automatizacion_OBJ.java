@@ -36,7 +36,10 @@ public class automatizacion_OBJ extends BasePage {
 	By accountCreationBtn = By.id("submitAccount");
 	By hoverWomen   = By.xpath("//a[@class='sf-with-ul'][contains(text(),'Women')]");
 	By hoverTshirts = By.xpath("//li[@class='sfHover']//a[contains(text(),'T-shirts')]");
-	
+	By TshirtText   = By.xpath("//a[contains(text(),'Faded Short Sleeve T-shirts')]");
+	By AddToCart    = By.name("Submit");
+	By checkout     = By.xpath("//span[contains(text(),'Proceed to checkout')]");
+	By pTocheckout  = By.xpath("//a[@class='button btn btn-default standard-checkout button-medium']//span[contains(text(),'Proceed to checkout')]");
 	
 	public void before() {
 		chromeDriverConnection();

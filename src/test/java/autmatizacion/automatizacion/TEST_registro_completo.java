@@ -51,5 +51,9 @@ public class TEST_registro_completo {
 		//hover over women and clicks the tab tshirts thats hidden if not hover.
 		obj.hoverElement(obj.hoverWomen);
 		obj.click(obj.hoverTshirts);
+		obj.click(obj.TshirtText);
+		obj.click(obj.AddToCart);
+		//obj.click(obj.checkout);
+		//obj.click(obj.pTocheckout);
 	}
 }
