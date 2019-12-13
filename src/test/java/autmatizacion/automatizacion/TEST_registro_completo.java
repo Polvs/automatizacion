@@ -2,6 +2,8 @@ package autmatizacion.automatizacion;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,9 +14,14 @@ public class TEST_registro_completo {
 	WebDriver driver;
 	automatizacion_OBJ obj = new automatizacion_OBJ(driver);
 	
+	private WriteExcelFile writeFile;
+	private ReadExcelFile readFile;
+	
 	@Before
 	public void setUp() throws Exception {
 		obj.before();
+		//writeFile = new WriteExcelFile();
+		readFile  = new ReadExcelFile();
 	}
 
 	@After
@@ -23,7 +30,18 @@ public class TEST_registro_completo {
 	}
 
 	@Test
-	public void test() throws InterruptedException {
+	public void test() throws InterruptedException, IOException {
+		
+		String filepath     = "C:\\Users\\usuario\\Downloads\\excel.xlsx";
+		String nameExcel    = readFile.getCellValue(filepath, "Hoja1", 0, 1);
+		String surnameExcel = readFile.getCellValue(filepath, "Hoja1", 1, 1);
+		String password     = readFile.getCellValue(filepath, "Hoja1", 2, 1);
+		String company      = readFile.getCellValue(filepath, "Hoja1", 3, 1);
+		String address      = readFile.getCellValue(filepath, "Hoja1", 4, 1);
+		String city         = readFile.getCellValue(filepath, "Hoja1", 5, 1);   
+		Double postcode     = readFile.getIntCellValue(filepath, "Hoja1", 6, 1);
+		Double phone        = readFile.getIntCellValue(filepath, "Hoja1", 8, 1);
+		
 		obj.click(obj.signInBtn);
 
 		obj.waitForElementClickable(obj.registerEmail, 10);
@@ -33,15 +51,15 @@ public class TEST_registro_completo {
 		obj.waitForElementClickable(obj.genderBtn, 10);
 		obj.click(obj.genderBtn);
 		
-		obj.name_lsname_password("alvaro", "last name", "aaaaaa");
+		obj.name_lsname_password(nameExcel, surnameExcel, password);
 		obj.age_dropdown();
 		obj.click(obj.newsletter);
 		obj.click(obj.specialOffers);
-		obj.company("GFI");
-		obj.address("calle serrano galvache 46", "Madrid");
+		obj.company(company);
+		obj.address(address, city);
 		obj.state_dropdown();
-		obj.writeText(obj.postcode, "28010");
-		obj.writeText(obj.mobile_phone, "123456789");
+		obj.writeInt(obj.postcode, postcode);
+		obj.writeInt(obj.mobile_phone, phone);
 		obj.click(obj.accountCreationBtn);
 		
 		obj.waitForElementClickable(obj.signOutBtn, 10);

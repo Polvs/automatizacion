@@ -58,7 +58,12 @@ public class BasePage {
     public void writeText(By elementBy, String text) {
         driver.findElement(elementBy).sendKeys(text);
     }
-   
+    
+    public void writeInt(By elementBy, Double postcode) {
+    	int numberJ = (int)Math.round(postcode);
+    	driver.findElement(elementBy).sendKeys(Integer.toString(numberJ));
+    }
+    
     // Read Text
     public String readText(By elementBy) {
        return driver.findElement(elementBy).getText();
