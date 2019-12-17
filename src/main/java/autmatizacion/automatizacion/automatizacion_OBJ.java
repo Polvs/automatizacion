@@ -49,7 +49,7 @@ public class automatizacion_OBJ extends BasePage {
 	}
 	
 	public void quit() {
-		//driver.quit();
+		driver.quit();
 	}
 
 	public void randomEmail() {

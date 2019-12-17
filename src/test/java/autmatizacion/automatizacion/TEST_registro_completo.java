@@ -14,12 +14,13 @@ public class TEST_registro_completo {
 	WebDriver driver;
 	automatizacion_OBJ obj = new automatizacion_OBJ(driver);
 	
-	private WriteExcelFile writeFile;
+	//private WriteExcelFile writeFile;
 	private ReadExcelFile readFile;
 	
 	@Before
 	public void setUp() throws Exception {
 		obj.before();
+		
 		//writeFile = new WriteExcelFile();
 		readFile  = new ReadExcelFile();
 	}
@@ -32,7 +33,7 @@ public class TEST_registro_completo {
 	@Test
 	public void test() throws InterruptedException, IOException {
 		
-		String filepath     = "C:\\Users\\usuario\\Downloads\\excel.xlsx";
+		String filepath     = "C:\\Users\\usuario\\eclipse-workspace\\automatizacion\\Excel\\excel.xlsx";
 		String nameExcel    = readFile.getCellValue(filepath, "Hoja1", 0, 1);
 		String surnameExcel = readFile.getCellValue(filepath, "Hoja1", 1, 1);
 		String password     = readFile.getCellValue(filepath, "Hoja1", 2, 1);
@@ -69,9 +70,7 @@ public class TEST_registro_completo {
 		//hover over women and clicks the tab tshirts thats hidden if not hover.
 		obj.hoverElement(obj.hoverWomen);
 		obj.click(obj.hoverTshirts);
-		obj.click(obj.TshirtText);
-		obj.click(obj.AddToCart);
-		Thread.sleep(500);
-		obj.click(obj.checkout);
+
+
 	}
 }
