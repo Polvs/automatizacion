@@ -45,7 +45,7 @@ public class TEST_registro_completo {
 		
 		obj.click(obj.signInBtn);
 
-		obj.waitForElementClickable(obj.registerEmail, 10);
+		obj.waitFolrElementClickable(obj.registerEmail, 10);
 		obj.randomEmail();
 		obj.click(obj.registerBtn);
 		
