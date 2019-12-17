@@ -30,16 +30,17 @@ public class automatizacion_OBJ extends BasePage {
 	By company     = By.id("company");
 	By address     = By.id("address1");
 	By city        = By.id("city");
-	By dropdown_state       = By.id("id_state");
+	By dropdown_state = By.id("id_state");
 	By postcode    = By.id("postcode");
 	By mobile_phone = By.id("phone_mobile");
 	By accountCreationBtn = By.id("submitAccount");
 	By hoverWomen   = By.xpath("//a[@class='sf-with-ul'][contains(text(),'Women')]");
 	By hoverTshirts = By.xpath("//li[@class='sfHover']//a[contains(text(),'T-shirts')]");
 	By TshirtText   = By.xpath("//a[contains(text(),'Faded Short Sleeve T-shirts')]");
-	By AddToCart    = By.name("Submit");
-	By checkout     = By.xpath("//span[contains(text(),'Proceed to checkout')]");
-	By pTocheckout  = By.xpath("//a[@class='button btn btn-default standard-checkout button-medium']//span[contains(text(),'Proceed to checkout')]");
+	By AddToCart    = By.xpath("//span[contains(text(),'Add to cart')]");
+	By checkout     = By.xpath("//a[@class='btn btn-default button button-medium']");
+	
+	
 	
 	public void before() {
 		chromeDriverConnection();

@@ -68,9 +68,6 @@ public class ReadExcelFile {
 		
 		XSSFCell cell               = row.getCell(cellNumber);
 		
-		return cell.getNumericCellValue();
-		
+		return cell.getNumericCellValue();	
 	}
-	
-
 }

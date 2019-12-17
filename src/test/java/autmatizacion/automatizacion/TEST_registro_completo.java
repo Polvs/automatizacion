@@ -71,7 +71,7 @@ public class TEST_registro_completo {
 		obj.click(obj.hoverTshirts);
 		obj.click(obj.TshirtText);
 		obj.click(obj.AddToCart);
-		//obj.click(obj.checkout);
-		//obj.click(obj.pTocheckout);
+		Thread.sleep(500);
+		obj.click(obj.checkout);
 	}
 }
